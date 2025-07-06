@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaStore, FaMapMarkerAlt } from "react-icons/fa";
 
 const InputForm = ({ onSubmit }) => {
     const [formData, setFormData] = useState({ name: "", location: "" });
@@ -13,34 +14,49 @@ const InputForm = ({ onSubmit }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="bg-white p-6 rounded-xl shadow-md w-full max-w-md mb-6"
+            className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md mb-8 transition-all duration-300"
         >
-            <h2 className="text-xl font-bold mb-4">Enter Business Details</h2>
-            <input
-                type="text"
-                placeholder="Business Name"
-                value={formData.name}
-                onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full p-2 mb-3 border rounded"
-                required
-            />
-            <input
-                type="text"
-                placeholder="Location"
-                value={formData.location}
-                onChange={(e) =>
-                    setFormData({ ...formData, location: e.target.value })
-                }
-                className="w-full p-2 mb-3 border rounded"
-                required
-            />
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                📝 Business Information
+            </h2>
+
+            <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+                    <FaStore /> Business Name
+                </label>
+                <input
+                    type="text"
+                    placeholder="e.g. Cake & Co"
+                    value={formData.name}
+                    onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                />
+            </div>
+
+            <div className="mb-6">
+                <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
+                    <FaMapMarkerAlt /> Location
+                </label>
+                <input
+                    type="text"
+                    placeholder="e.g. Mumbai"
+                    value={formData.location}
+                    onChange={(e) =>
+                        setFormData({ ...formData, location: e.target.value })
+                    }
+                    className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                />
+            </div>
+
             <button
                 type="submit"
-                className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 w-full"
+                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 rounded-xl hover:from-blue-600 hover:to-blue-700 transition duration-300"
             >
-                Submit
+                🚀 Submit
             </button>
         </form>
     );
